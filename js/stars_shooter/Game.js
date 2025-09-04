@@ -30,7 +30,7 @@ export default class Game {
     this.meteorframes = [];
     for (let i = 1; i <= 3; i++) {
       const img = new Image();
-      img.src = `img/meteorite/meteor${i}.png`; // pastikan path benar
+      img.src = `img/meteorite/Meteor${i}.png`; // pastikan path benar
       this.meteorframes.push(img);
     }
 

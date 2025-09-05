@@ -1,15 +1,17 @@
 import Enemy from "./Enemy.js";
+import EnemyBullet from "./EnemyBullet.js";
 
 export default class Alien extends Enemy {
-  constructor(x, y, img) {
-    super(x, y, 50, 40, 1, img);
+  constructor(x, y, img, canvasWidth) {
+    super(x, y, 64, 64, 1, img);
     this.moveSpeed = 2;
-    this.shootInterval = 100; // tiap 100 frame
+    this.shootInterval = 300; // tiap 100 frame
+    this.canvasWidth = canvasWidth;
   }
 
   update(deltaTime) {
     this.x += this.moveSpeed * this.horizontal;
-    if (this.x <= 0 || this.x + this.width >= canvasWidth) {
+    if (this.x <= 0 || this.x + this.width >= this.canvasWidth) {
       this.horizontal *= -1; //putar arah
     }
 

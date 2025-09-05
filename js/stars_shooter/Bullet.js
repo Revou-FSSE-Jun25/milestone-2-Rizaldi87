@@ -3,7 +3,7 @@ export default class Bullet {
     this.x = x;
     this.y = y;
     this.width = 5;
-    this.height = 10;
+    this.height = 15;
     this.speed = 7;
   }
   update() {
@@ -11,7 +11,18 @@ export default class Bullet {
   }
 
   draw(ctx) {
-    ctx.fillStyle = "#3b82f6";
+    ctx.save();
+
+    const gradient = ctx.createLinearGradient(this.x, this.y, this.x, this.y + this.height);
+    gradient.addColorStop(0, "#9fffffff");
+    gradient.addColorStop(1, "#3b82f6");
+
+    ctx.fillStyle = gradient;
+    ctx.shadowColor = "#00ffff";
+    ctx.shadowBlur = 25;
+
     ctx.fillRect(this.x, this.y, this.width, this.height);
+
+    ctx.restore();
   }
 }

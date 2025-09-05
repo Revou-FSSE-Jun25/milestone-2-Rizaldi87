@@ -1,7 +1,7 @@
 function generateCards(gridId, cardCount) {
   const grid = document.querySelector(gridId);
   const cardHtml = `
-    <div class="card cursor-pointer bg-gray-800 rounded-2xl shadow-lg p-6 w-40 h-[225px] flex flex-col items-center justify-center text-white transition-transform duration-300 relative">
+    <div class="card cursor-pointer bg-gray-800 rounded-2xl shadow-lg p-6 w-full md:w-40 h-[225px] flex flex-col items-center justify-center text-white transition-transform duration-300 relative">
       <p class="card-text text-gray-300 text-[6rem] text-center"></p>
     </div>`;
 

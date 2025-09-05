@@ -5,6 +5,10 @@ const gameState = document.querySelector("#game-state");
 const scoreElement = document.querySelector("#score");
 let score = 0;
 
+document.getElementById("start-btn").addEventListener("click", () => {
+  document.getElementById("start-overlay").classList.replace("translate-y-0", "-translate-y-[200%]");
+});
+
 let playerChoice = "";
 cards.forEach((card) => {
   card.addEventListener("click", function () {

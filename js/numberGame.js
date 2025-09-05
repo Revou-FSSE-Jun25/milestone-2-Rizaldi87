@@ -4,6 +4,10 @@ let playerChances = 5;
 let canAnswer = true;
 document.getElementById("chances").textContent = playerChances;
 
+document.getElementById("start-btn").addEventListener("click", () => {
+  document.getElementById("start-overlay").classList.replace("translate-y-0", "-translate-y-[200%]");
+});
+
 document.getElementById("guess-btn").addEventListener("click", function (e) {
   e.preventDefault();
   if (!canAnswer) return;

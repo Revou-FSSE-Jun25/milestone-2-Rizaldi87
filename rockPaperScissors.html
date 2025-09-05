@@ -73,6 +73,20 @@
       </div>
     </main>
 
+    <div
+      id="start-overlay"
+      class="absolute top-0 left-0 w-screen h-screen flex gap-5 flex-col justify-center items-center bg-gradient-to-b from-indigo-900 via-purple-800 to-indigo-900 transition-transform duration-500 ease-in-out translate-y-0"
+    >
+      <h1 class="text-4xl md:text-6xl font-extrabold text-yellow-400 drop-shadow-lg text-center">ROCK PAPER SCISSORS</h1>
+      <p class="mb-4 text-center">Choose your weapon against the computer</p>
+      <button
+        id="start-btn"
+        class="px-8 py-3 text-lg font-bold rounded-xl bg-yellow-400 text-indigo-900 hover:bg-yellow-300 transition-all duration-300 shadow-lg hover:scale-105 focus:ring-4 focus:ring-yellow-200 px-4 py-2 rounded-lg hover:bg-cyan-300 text-center"
+      >
+        Start
+      </button>
+    </div>
+
     <div id="game-state-overlay" class="hidden fixed inset-0 bg-black/80 flex-col items-center justify-center text-center">
       <h1 id="game-state" class="text-3xl text-yellow-300 mb-6"></h1>
       <button class="play-again-btn bg-cyan-400 text-black px-6 py-3 rounded-lg hover:bg-cyan-300" onclick="tryAgain()">Play Again</button>

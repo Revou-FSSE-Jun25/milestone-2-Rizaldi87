@@ -17,9 +17,15 @@ export default class Game {
     this.enemies = [];
     this.stars = [];
     this.lastEnemySpawn = 0;
+    this.enemySpawnCooldown = 1000;
     this.shootCooldown = 0;
 
-    this.state = GameState.RUNNING;
+    this.state = GameState.PAUSED;
+
+    document.getElementById("start-btn").addEventListener("click", () => {
+      document.getElementById("start-overlay").classList.replace("translate-y-0", "-translate-y-[200%]");
+      this.state = GameState.RUNNING;
+    });
 
     this.score = 0;
     const scoreElement = document.getElementById("score");
@@ -142,6 +148,14 @@ export default class Game {
         this.score += deltaTime * 0.005;
         this.scoreElement.textContent = Math.floor(this.score);
 
+        if (this.score >= 100) {
+          this.enemySpawnCooldown = 750;
+        } else if (this.score >= 1000) {
+          this.enemySpawnCooldown = 500;
+        } else if (this.score >= 5000) {
+          this.enemySpawnCooldown = 100;
+        }
+
         this.checkCollision();
         this.stars.forEach((s) => s.update(this.canvas));
         this.updateCombinedInput();
@@ -159,7 +173,7 @@ export default class Game {
         this.bullets.forEach((b) => b.update());
 
         this.lastEnemySpawn += deltaTime;
-        if (this.lastEnemySpawn > 1000) {
+        if (this.lastEnemySpawn > this.enemySpawnCooldown) {
           const randomXPos = Math.random() * (this.canvas.width - 50);
 
           if (Math.random() < 0.7) {
